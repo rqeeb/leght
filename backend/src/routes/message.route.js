@@ -6,5 +6,4 @@ router.get("/send", (req, res) => {
   res.send("Send Endpoint");
 });
 
-
 export default router;
