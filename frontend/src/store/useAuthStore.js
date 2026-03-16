@@ -7,7 +7,9 @@ export const useAuthStore = create((set) => ({
 
   checkAuth: async () => {
     try {
-      const res = await axiosInstance.get("/auth/check");
+      const res = await axiosInstance.get("http://localhost:2022/auth/check");
+      //TODO: change BE url
+
       set({ authUser: res.data });
       
     } catch (err) {

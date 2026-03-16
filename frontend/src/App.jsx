@@ -8,14 +8,14 @@ import PageLoader from "./components/PageLoader.jsx";
 
 function App() {
   const { checkAuth, isCheckingAuth, authUser } = useAuthStore();
+  console.log("authUser:", authUser);
+  console.log("isCheckingAuth:", isCheckingAuth);
 
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
 
-
-
-  if(isCheckingAuth) return <PageLoader/>
+  if (true) return <PageLoader />;
   return (
     <div
       className="min-h-screen bg-[#D4CAB7] relative flex items-center 
