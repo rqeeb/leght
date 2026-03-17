@@ -6,6 +6,8 @@ import SignUpPage from "./pages/SignUpPage";
 import { useAuthStore } from "./store/useAuthStore";
 import PageLoader from "./components/PageLoader.jsx";
 
+import {Toaster} from "react-hot-toast";
+
 function App() {
   const { checkAuth, isCheckingAuth, authUser } = useAuthStore();
   console.log("authUser:", authUser);
@@ -15,7 +17,7 @@ function App() {
     checkAuth();
   }, [checkAuth]);
 
-  if (true) return <PageLoader />;
+  if (isCheckingAuth) return <PageLoader />;
   return (
     <div
       className="min-h-screen bg-[#D4CAB7] relative flex items-center 
@@ -39,6 +41,8 @@ function App() {
           element={!authUser ? <SignUpPage /> : <Navigate to={"/"} />}
         />
       </Routes>
+
+      <Toaster/>
     </div>
   );
 }
