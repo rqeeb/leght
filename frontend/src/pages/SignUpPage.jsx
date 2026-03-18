@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore.js";
 import BorderAnimatedContainer from "../components/borderAnimatedContainer.jsx";
 import {
