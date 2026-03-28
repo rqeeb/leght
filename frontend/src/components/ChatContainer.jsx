@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 function ChatContainer() {
   return (
@@ -8,4 +8,4 @@ function ChatContainer() {
   )
 }
 
-export default ChatContainer
+export default ChatContainer;

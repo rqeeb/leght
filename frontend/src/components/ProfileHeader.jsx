@@ -21,8 +21,18 @@ function ProfileHeader() {
         <div className="flex items-center gap-3">
           {/* Avatar */}
           <div className="avatar online">
-            <button>
-              
+            <button
+              className="size-14 rounded-full overflow-hidden relative group"
+              onClick={() => fileInputRef.current.click()}
+            >
+              <img
+                src={selectedImg || authUser.profilePic || "/avatar.png"}
+                alt="User Image"
+                className="size-full object-cover"
+              />
+              <div classname="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                <span className="text-white text-xs">Change</span>
+              </div>
             </button>
             <input
               type="file"
@@ -30,7 +40,6 @@ function ProfileHeader() {
               ref={fileInputRef}
               className="hidden"
             />
-
           </div>
         </div>
       </div>
