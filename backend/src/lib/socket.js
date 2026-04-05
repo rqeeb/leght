@@ -16,13 +16,11 @@ const io = new Server(server, {
 
 io.use(socketAuthMiddleware);
 
-
 export function getReceiverSocketId(userId) {
   return userSocketMap[userId];
 }
 
-
-const userSocketMap = {}; 
+const userSocketMap = {};
 
 io.on("connection", (socket) => {
   console.log("A user connected", socket.user.fullName);
@@ -30,10 +28,8 @@ io.on("connection", (socket) => {
   const userId = socket.userId;
   userSocketMap[userId] = socket.id;
 
-  
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
- 
   socket.on("disconnect", () => {
     console.log("A user disconnected", socket.user.fullName);
     delete userSocketMap[userId];
