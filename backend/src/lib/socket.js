@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: [ENV.CLIENT_URL],
+    origin: ENV.CLIENT_URL,
     credentials: true,
   },
 });
@@ -25,7 +25,7 @@ const userSocketMap = {};
 io.on("connection", (socket) => {
   console.log("A user connected", socket.user.fullName);
 
-  const userId = socket.userId;
+  const userId = socket.user._id;
   userSocketMap[userId] = socket.id;
 
   io.emit("getOnlineUsers", Object.keys(userSocketMap));

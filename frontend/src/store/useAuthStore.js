@@ -35,7 +35,7 @@ export const useAuthStore = create((set, get) => ({
       toast.success("Account created successfully!");
     } catch (error) {
       toast.error(error?.response?.data?.message || "Something went wrong");
-      console.error("Error in signup ",error);
+      console.error("Error in signup ", error);
     } finally {
       set({ isSigningUp: false });
     }
@@ -46,13 +46,12 @@ export const useAuthStore = create((set, get) => ({
     try {
       const res = await axiosInstance.post("/auth/login", data);
       set({ authUser: res.data });
-      
+
       get().connectSocket();
       toast.success("Logged In!");
-
     } catch (error) {
       toast.error(error?.response?.data?.message || "Something went wrong");
-      console.error("Error in login ",error);
+      console.error("Error in login ", error);
     } finally {
       set({ isLoggingIn: false });
     }
@@ -86,6 +85,7 @@ export const useAuthStore = create((set, get) => ({
 
     const socket = io(BASE_URL, {
       withCredentials: true,
+      transports: ["polling"],
     });
 
     socket.connect();
