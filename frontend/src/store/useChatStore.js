@@ -101,7 +101,7 @@ export const useChatStore = create((set, get) => ({
     socket.off("newMessage");
 
     socket.on("newMessage", (newMessage) => {
-      const { selectedUser, isSoundEnabled } = get(); // ✅ fresh state
+      const { selectedUser, isSoundEnabled } = get(); //on-state purpose
 
       if (!selectedUser) return;
       if (newMessage.senderId !== selectedUser._id) return;
